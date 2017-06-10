@@ -72,7 +72,7 @@ from gensim.models.ldamodel import LdaModel
 from gensim.corpora.dictionary import Dictionary
 
 from highlights.extractive import erank, tgraph
-from highlights.extractive import make_topic_terms
+from highlights import make_topic_terms
 
 # load lda stuff into memory
 word_dict = Dictionary.load_from_text('/path/to/your_model_wordids.txt')
