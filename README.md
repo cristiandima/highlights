@@ -20,6 +20,8 @@ The erank algorithm is much like textrank, the only difference being that the or
 
 This tgraph implementation follows much of the original paper, the only (major) difference being that a different function is used to compute sentence importance, namely, the erank function above. I have found this to produce better results than using the original graph and hits algorithm they propose.
 
+Do note this performance comparison says little about their implemenation, only my own implementations and tests. What trully matters however is that this algorithm is the best among the ones currently implemented (also the slowest but probably usable in most cases).
+
 ## Installation
 
 ```Python
@@ -35,6 +37,8 @@ Note this package depends on and will install quite a few other packages:
 - pulp, for linear programming
 
 Don't forget to download the "en" model for spacy after installing the package, as instructed above.
+
+The package currently requires the most recent versions of these libraries. This is certanly way too restrictive and I will try and update the package as soon as possible to lower the version requirements.
 
 ## Usage
 
