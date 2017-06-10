@@ -6,7 +6,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='0.1',
+    version='0.1.1',
 
     description='A Python 3 package for automatic summarization',
 
@@ -49,8 +49,8 @@ setup(
     # your project is installed. For an analysis of "install_requires" vs pip's
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    setup_requires=['numpy==1.13.0'],
-    install_requires=['spacy==1.8.2', 'scipy==0.19.0', 'scikit-learn==0.18.1', 'gensim==2.1.0', 'pulp==1.6.5'],
+    setup_requires=['numpy>=1.13.0'],
+    install_requires=['spacy>=1.8.2', 'scipy>=0.19.0', 'scikit-learn>=0.18.1', 'gensim>=2.1.0', 'pulp>=1.6.5'],
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). You can install these using the following syntax,
