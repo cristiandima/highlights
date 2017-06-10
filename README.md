@@ -1,3 +1,5 @@
+# Highlights
+
 This is a Python 3 package for automatic summarization. You can use it to automatically generate article highlights/summaries. There are currently three extractive algorithms implemented:
 
 - textrank [Mihalcea, 2004](https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf)
