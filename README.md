@@ -18,6 +18,22 @@ The erank algorithm is much like textrank, the only difference being that the or
 
 This tgraph implementation follows much of the original paper, the only (major) difference being that a different function is used to compute sentence importance, namely, the erank function above. I have found this to produce better results than using the original graph and hits algorithm they propose.
 
+## Installation
+
+```Python
+pip install highlights
+python -m spacy download en
+```
+
+Note this package depends on and will install quite a few other packages:
+
+- numpy, scipy, scikit-learn, for some numerical computations
+- spacy, for sentence segmentation and named entity recognition
+- gensim, for lda modeling
+- pulp, for linear programming
+
+Don't forget to download the "en" model for spacy after installing the package, as instructed above.
+
 ## Usage
 
 The textrank algorithm has the simplest API. Just pass it some text, and it will return the most important sentences in that text as a list of strings.
