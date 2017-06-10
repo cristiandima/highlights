@@ -1,3 +1,23 @@
+"""
+This is an implementation of a variation of the algorithm presented in
+Parveen 2015: "Integrating Importance, Non-Redundancy and Coherence
+in Graph-Based Extractive Summarization"
+
+The proposed variation is that instead of using the hits algorithm over the
+topical graph to compute sentence importance, we use the importance scores
+computed by the erank algorithms.
+
+On a dataset of my own, a collection of 500 cnn articles, and using my own
+500 topics lda model trained over the wikipedia corpus, this algorithm has
+shown better results than the original one (do notice how my tests were not
+at all run under the same conditions as theirs, nor can I guarantee my
+implementation of the original was exact, so it's hard to precisely tell
+which algorithm does better)
+
+This extractive algorithm is the best between the ones currently implemented
+but it is also the slowest.
+"""
+
 import spacy
 
 from collections import defaultdict
@@ -12,6 +32,10 @@ _word_tokenize = TfidfVectorizer(stop_words='english').build_analyzer()
 
 
 def _sent_topics(sentences, topic_words):
+    """ Maps each sentence to a list of topics contained in that sentences. A
+    sentence contains a topic if it contains one of the words associated
+    with that topic.
+    """
     sent_topics = {}
     topic_words = [set(tw) for tw in topic_words]
 
@@ -26,6 +50,9 @@ def _sent_topics(sentences, topic_words):
 
 
 def _topic_sents(sent_topics):
+    """ Takes in a mapping from sentences to topics and returns a mapping
+    of topics to sentences
+    """
     topic_sents = defaultdict(set)
     for sent_key in sent_topics:
         for topic_key in sent_topics[sent_key]:
@@ -33,7 +60,11 @@ def _topic_sents(sent_topics):
 
     return topic_sents
 
+
 def _coh_scores(sent_topics):
+    """ Computes the normalized coherence score of each sentence. This is the
+    normalized eq 2 in the original paper.
+    """
     coh_score = {}
     sent_keys = sent_topics.keys()
     for this_sent in range(len(sent_keys)):

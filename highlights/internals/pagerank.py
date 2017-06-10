@@ -1,5 +1,7 @@
 def pagerank_weighted(graph, initial_value=None, damping=0.85):
-    """Calculates PageRank for an undirected weighted graph"""
+    """Calculates PageRank for an undirected weighted graph using the formula
+    described in "Bringing Order into Texts - Mihalcea (2004)"
+    """
     CONVERGENCE_THRESHOLD = 0.0001
 
     if initial_value == None:
